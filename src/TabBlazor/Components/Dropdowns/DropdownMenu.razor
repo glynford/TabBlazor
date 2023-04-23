@@ -4,7 +4,8 @@
     <HtmlElement Tag="div"
                  class="@ClassNames"
                  @onclick="OnClick"
-                 @attributes="@UnmatchedParameters">
+                 @attributes="@UnmatchedParameters"
+                 style="@MoveToLeft()">
     
         @ChildContent
     </HtmlElement>

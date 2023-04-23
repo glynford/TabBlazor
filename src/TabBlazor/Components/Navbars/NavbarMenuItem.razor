@@ -6,7 +6,7 @@
              @onclick="OnClick"
              @attributes="@UnmatchedParameters">
 
-    <a class="@(isSubMenu ? "dropdown-item":"nav-link") @(IsDropdown ? "dropdown-toggle": "")" @onclick="ToogleDropdown" href="@Href" @onclick:stopPropagation=IsDropdown>
+    <a class="@(isSubMenu ? "dropdown-item":"nav-link") @(IsDropdown ? "dropdown-toggle": "") @(@IsActive() ? "active" : "")" @onclick="ToogleDropdown" href="@Href" @onclick:stopPropagation=IsDropdown>
 
         @if (MenuItemIcon != null)
         {
@@ -37,3 +37,20 @@
     }
 
 </HtmlElement>
+
+@code{
+    @inject NavigationManager NavigationManager;
+
+    protected override async Task OnInitializedAsync()
+    {
+        NavigationManager.LocationChanged += (s, e) => StateHasChanged();
+        await base.OnInitializedAsync();
+    }
+
+    bool IsActive()
+    {
+        var relativePath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri).ToLower();
+        Activated = Href == relativePath;
+        return Href == relativePath;
+    }
+}

@@ -11,8 +11,10 @@ namespace TabBlazor
         [Inject] private NavigationManager navigationManager { get; set; }
         [Parameter] public NavbarBackground Background { get; set; }
         [Parameter] public NavbarDirection Direction { get; set; }
+        [Parameter] public bool ShowToggleButton { get; set; } = true;
+        [Parameter] public bool IsExpanded { get; set; } = true;
         protected string HtmlTag => "div";
-        public bool IsExpanded = true;
+        
 
         private List<NavbarMenuItem> navbarItems = new();
 

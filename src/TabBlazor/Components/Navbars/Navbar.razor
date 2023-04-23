@@ -7,16 +7,14 @@
                  @onclick="OnClick"
                  @attributes="@UnmatchedParameters">
 
-        <div class="container">
+        <div class="container-xxl">
+            @if (ShowToggleButton){
+                <button class="navbar-toggler" type="button" @onclick="ToogleExpand">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            }
 
-            <button class="navbar-toggler" type="button" @onclick="ToogleExpand">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-           
                 @ChildContent
-          
-
 
         </div>
     </HtmlElement>

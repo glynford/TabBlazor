@@ -10,6 +10,7 @@ namespace TabBlazor
     {
         [Parameter] public bool Arrow { get; set; } = false;
         [Parameter] public bool Card { get; set; } = false;
+        [Parameter] public bool AlignRight { get; set; } = false;
         [Parameter] public EventCallback Disposed { get; set; }
 
         private List<DropdownItem> subMenuItems = new();
@@ -46,6 +47,11 @@ namespace TabBlazor
             {
                 subMenuItems.Remove(item);
             }
+        }
+
+        public string MoveToLeft()
+        {
+            return AlignRight ? "right: 0;" : "left: 0;";
         }
 
         public void Dispose()
