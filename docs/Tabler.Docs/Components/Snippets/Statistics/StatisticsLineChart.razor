@@ -69,7 +69,7 @@
         var options = new ApexCharts.ApexChartOptions<Order>();
         options.Colors = new List<string> { "#206bc4" };
         options.Chart = new Chart { Sparkline = new ChartSparkline { Enabled = true } };
-        options.Stroke = new Stroke { Width = 3, DashArray = new int[] { 0, 3 }, Colors = new List<string> { "#206bc4", "#999999" } };
+        options.Stroke = new Stroke { Width = 3, DashArray = new Size() { 0, 3 }, Colors = new List<string> { "#206bc4", "#999999" } };
         return options;
     }
 
